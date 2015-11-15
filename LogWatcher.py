@@ -9,8 +9,9 @@ from processors import LoglineEventProcessor, LoglineAlerter, Preprocessor
 
 EVENT_PROCESSORS = 'event_processors'
 LOGFILES = 'logfiles'
-LOGFILETYPES = 'logfiletypes'
-ALERT_FILTER = 'alert_filter'
+NAME = 'name'
+TYPE = 'type'
+FILTER = 'filter'
 
 class LogFileWatcher(Thread):
     '''
@@ -67,14 +68,14 @@ class LogFileWatcherController(object):
             self.logfiles = config[LOGFILES]
 
     def start(self):
-        for logfilename in self.logfiles:
+        for logfile in self.logfiles:
             event_processors = [
                     (Preprocessor,
-                        self.logfiles[logfilename][LOGFILETYPES]),
+                        logfile[TYPE]),
                     (LoglineAlerter,
-                        self.logfiles[logfilename][ALERT_FILTER])
+                        logfile[FILTER])
                     ]
-            LogFileWatcher(logfilename, event_processors).start()
+            LogFileWatcher(logfile[NAME], event_processors).start()
         
 
 

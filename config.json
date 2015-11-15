@@ -1,12 +1,23 @@
 {
-"logfiles": {
-	"./test.log": {
-		"logfiletypes": "log4j",
-		"alert_filter": ["ERROR", "FATAL"]
+	"intervall": 1,
+	"logfiles": [
+		{ 
+			"name": "./test.log",
+		  	"type": "log4j",
+		  	"filter": ["ERROR", "FATAL"]
 		},
-	"./test2.log": {
-		"logfiletypes": "log4j",
-		"alert_filter": ["ERROR", "FATAL"]
+		{ 
+			"name": "./test2.log",
+			"type": "log4j",
+			"filter": ["ERROR", "FATAL"]
 		}
-	}
+	],
+	"actions": [
+		{
+			"type": "email_action"
+		}
+	
+	]
+	
+
 }
