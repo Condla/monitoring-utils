@@ -1,0 +1,12 @@
+{
+"logfiles": {
+	"./test.log": {
+		"logfiletypes": "log4j",
+		"alert_filter": ["ERROR", "FATAL"]
+		},
+	"./test2.log": {
+		"logfiletypes": "log4j",
+		"alert_filter": ["ERROR", "FATAL"]
+		}
+	}
+}
