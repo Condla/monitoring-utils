@@ -7,3 +7,9 @@ When the LoglineAlerter finds a log line that matches the pattern, actions are t
 class Action(object):
     def __init__(self):
         pass
+
+
+class EmailAction(Action):
+    def __init__(self):
+        Action.__init__(self)
+        pass
